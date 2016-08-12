@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RegisterTest</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>register</h1>
+<form action="" method="post">{% csrf_token%}
+	<!--csrf是Django安全機制-->	
+	{{form.as_p}}
+	<input type="submit" value="register" >
+</form>
+</body>
+</html>

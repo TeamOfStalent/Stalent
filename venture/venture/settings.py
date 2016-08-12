@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cngcourse'
+    'cngcourse',
+    'member'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,6 +69,10 @@ DATABASES = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
+AUTH_USER_MODEL = 'member.MyUser'
+
+MEDIA_ROOT=  os.path.join(BASE_DIR, "media")
+MEDIA_URL = 'http://127.0.0.1:8000/media/'
 
 LANGUAGE_CODE = 'zh-TW'
 
@@ -82,5 +87,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.contrib.auth.context_processors.auth',
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    'django.core.context_processors.request',
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+]
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),  # where I put my static files
+)
+STATIC_ROOT = os.path.join(BASE_DIR,'assets')

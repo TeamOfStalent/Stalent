@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>indexTest</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h2>Just a index page</h2>
+<p>目前有註冊的成員:</p>
+{% for name in usersname%}
+<p>{{name}}</p>
+<p>-------------</p>
+{% endfor %}
+{% if request.user.is_authenticated %}
+	<p>{{username}} you're logined</p>
+	<p>{{goddick}}</p>
+	<a href="/accounts/logout"><button>click to logout</button></a>
+{% else %}
+	<p>you haven't logined yet</p>
+	<a href="/accounts/login"><button>click to login</button></a>
+	<br><br>
+	<a href="/accounts/register"><button>click to register</button></a>
+{% endif %}
+</body>
+</html>
